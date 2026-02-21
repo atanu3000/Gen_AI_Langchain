@@ -3,10 +3,13 @@ from dotenv import load_dotenv
 import os
 
 load_dotenv()  # Load environment variables from .env file
-os.getenv("GEMINI_API_KEY")
+os.getenv("GOOGLE_API_KEY")
 
 model = ChatGoogleGenerativeAI(model="gemini-2.5-flash-lite")
 
-response = model.invoke("What is the capital of India?")
+# response = model.invoke("What is the capital of India?")
+# print(response.content)
 
-print(response.content)
+for chunk in model.stream("Why do parrots have colorful feathers?"):
+    print(chunk.text, end="|", flush=True)
+
