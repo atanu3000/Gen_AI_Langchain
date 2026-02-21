@@ -1,0 +1,2 @@
+import langchain_google_genai
+print(langchain_google_genai.__version__)
