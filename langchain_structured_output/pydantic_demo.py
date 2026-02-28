@@ -2,7 +2,13 @@ from pydantic import BaseModel, Field, EmailStr
 from typing import Optional
 
 class Student(BaseModel):
-
+    """A model representing a student.
+    Attributes:
+        name (str): The name of the student.
+        age (Optional[int]): The age of the student. Must be a non-negative integer.
+        email (Optional[EmailStr]): The email address of the student. Must be a valid email format.
+        cgpa (Optional[float]): The CGPA of the student. Must be between 0 and 10.
+    """
     name: str = 'Atanu'
     age: Optional[int] = None
     email: Optional[EmailStr] = None
